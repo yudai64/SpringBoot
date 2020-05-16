@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}"></title>
+</head>
+<body>
+  <h3>お問い合わせ確認ページ</h3>
+  <div th:object="${inquiryForm}">
+    <p th:text="*{name}"></p>
+    <p th:text="*{email}"></p>
+    <p th:text="*{content}"></p>
+
+    <form method="POST" action="#" th:action="@{/inquiry/form}">
+      <input type="hidden" name="name" th:value="*{name}">
+      <input type="hidden" name="email" th:value="*{email}">
+      <input type="hidden" name="content" th:value="*{content}">
+      <input type="submit" value="戻る">
+    </form>
+  </div>
+</body>
+</html>
