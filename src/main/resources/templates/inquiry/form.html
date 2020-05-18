@@ -6,7 +6,7 @@
   <title th:text="${title}"></title>
 </head>
 <body>
-  <h2>新規問い合わせ</h2>
+  <h3 th:text="${title}"></h3>
   <form method="POST" action="#" th:action="@{/inquiry/confirm}" th:object="${inquiryForm}">
     <label>名前</label></br>
     <input type="text" name="name" th:value="*{name}"></br>
@@ -19,5 +19,7 @@
     <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
     <input type="submit" value="確認画面へ">
   </form>
+  <br>
+  <a th:href="@{/inquiry/index}"><span>問い合わせ一覧ページ</span></a>
 </body>
 </html>

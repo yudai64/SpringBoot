@@ -21,6 +21,10 @@ public class HelloController {
       log.warn("警告ログ");
     }
 
+    model.addAttribute("new_message", "新規問い合わせページ");
+    model.addAttribute("new_url", "/inquiry/form");
+    model.addAttribute("index_message", "問い合わせ一覧ページ");
+    model.addAttribute("index_url", "/inquiry/index");
     model.addAttribute("title", "HelloWorld");
 
     return "hello";

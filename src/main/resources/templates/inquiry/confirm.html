@@ -6,7 +6,7 @@
   <title th:text="${title}"></title>
 </head>
 <body>
-  <h3>お問い合わせ確認ページ</h3>
+  <h3 th:text="${title}"></h3>
   <div th:object="${inquiryForm}">
     <p th:text="*{name}"></p>
     <p th:text="*{email}"></p>
@@ -17,6 +17,13 @@
       <input type="hidden" name="email" th:value="*{email}">
       <input type="hidden" name="content" th:value="*{content}">
       <input type="submit" value="戻る">
+    </form>
+
+    <form method="POST" action="#" th:action="@{/inquiry/index}">
+      <input type="hidden" name="name" th:value="*{name}">
+      <input type="hidden" name="email" th:value="*{email}">
+      <input type="hidden" name="content" th:value="*{content}">
+      <input type="submit" value="送信">
     </form>
   </div>
 </body>
