@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class InquiryServiceImpl implements InquiryService {
 
-  @Autowired
   private InquiryRepository inquiryRepository;
+
+  @Autowired
+  public InquiryServiceImpl(InquiryRepository theInquiryRepository) {
+    inquiryRepository = theInquiryRepository;
+  }
   
   @Override
   public void save(Inquiry inquiry) {

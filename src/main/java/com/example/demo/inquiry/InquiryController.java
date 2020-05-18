@@ -20,8 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/inquiry")
 public class InquiryController {
   
-  @Autowired
   private InquiryService inquiryService;
+
+  @Autowired
+  public InquiryController(InquiryService theInquiryService) {
+    inquiryService = theInquiryService;
+  }
 
   @GetMapping("index")
   public String index(Model model) {
