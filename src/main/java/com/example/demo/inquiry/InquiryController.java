@@ -12,8 +12,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -54,6 +56,15 @@ public class InquiryController {
     return "inquiry/show";
   }
 
+  //編集ページに遷移
+  @PostMapping("{id}/edit")
+  public String edit(InquiryForm inquiryForm, @PathVariable("id") Integer id, Model model) {
+    Inquiry inquiry = inquiryService.findById(id);
+    model.addAttribute("title", "お問い合わせ編集ページ");
+    model.addAttribute("inquiryRequest", inquiry);
+    return "inquiry/edit";
+  }
+
   //新規問い合わせページで確認ボタンが押されたとき
   //入力に問題がなかった場合、確認画面ページに遷移
   //問題あった場合は新規問い合わせページに遷移
@@ -66,7 +77,7 @@ public class InquiryController {
 
     if (result.hasErrors()) {
       model.addAttribute("title", "新規問い合わせページ");
-    return "inquiry/form";
+      return "inquiry/form";
     }
     model.addAttribute("title", "確認ページ");
     return "inquiry/confirm";
@@ -92,10 +103,33 @@ public class InquiryController {
     return "inquiry/index";
   }
 
+  //削除ボタンが押されたとき
+  //問い合わせ消して、お問い合わせ一覧ページに遷移
   @DeleteMapping("{id}")
     public String destroy(@PathVariable Integer id) {
         inquiryService.deleteById(id);
         return "redirect:/inquiry/index";
+    }
+
+    //編集ページで「確認を反映」が押されたとき
+    //内容にあったら編集画面のまま
+    //なかったら詳細画面に遷移
+    @PutMapping("{id}")
+    public String update(@Validated InquiryForm inquiryForm, BindingResult result, Model model, @PathVariable Integer id, @ModelAttribute Inquiry inquiry) {
+
+      if (result.hasErrors()) {
+
+        Inquiry theInquiry = inquiryService.findById(id);
+        model.addAttribute("title", "お問い合わせ編集ページ");
+        model.addAttribute("inquiryRequest", theInquiry);
+        return "inquiry/edit";
+      }
+
+        inquiry.setId(id);
+        inquiryService.save(inquiry);
+        model.addAttribute("title", "お問い合わせ詳細ページ");
+        model.addAttribute("inquiryRequest", inquiry);
+        return "/inquiry/show";
     }
 
 }

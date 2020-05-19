@@ -37,4 +37,5 @@ public class InquiryServiceImpl implements InquiryService {
 public void deleteById(Integer id) {
   inquiryRepository.deleteById(id);
 }
+
 }
