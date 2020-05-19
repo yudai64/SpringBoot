@@ -9,6 +9,10 @@
   <h3 th:text="${title}">お問い合わせ詳細ページ</h3>
   <table th:object="${inquiryRequest}">
     <tr>
+      <th>ID</th>
+      <td th:text="*{id}"></td>
+    </tr>
+    <tr>
       <th>名前</th>
       <td th:text="*{name}"></td>
     </tr>

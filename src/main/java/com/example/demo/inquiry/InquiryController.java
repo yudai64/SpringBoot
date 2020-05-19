@@ -45,12 +45,12 @@ public class InquiryController {
   }
 
   //詳細ページに遷移
-  @GetMapping("{id}/details")
+  @GetMapping("{id}")
   public String details(@PathVariable("id") Integer id, Model model) {
     Inquiry inquiry = inquiryService.findById(id);
     model.addAttribute("title", "お問い合わせ詳細ページ");
     model.addAttribute("inquiryRequest", inquiry);
-    return "inquiry/details";
+    return "inquiry/show";
   }
 
   //新規問い合わせページで確認ボタンが押されたとき
