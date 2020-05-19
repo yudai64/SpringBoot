@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title th:text="${title}"></title>
 </head>
 <body>
   <h1>Hello World.</h1>
+  <a th:href="@{${new_url}}"><span th:text="${new_message}"></span></a>
+  <a th:href="@{${index_url}}"><span th:text="${index_message}"></span></a>
 </body>
 </html>

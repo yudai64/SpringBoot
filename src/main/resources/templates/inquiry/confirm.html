@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}"></title>
+</head>
+<body>
+  <h3 th:text="${title}"></h3>
+  <div th:object="${inquiryForm}">
+    <p th:text="*{name}"></p>
+    <p th:text="*{email}"></p>
+    <p th:text="*{content}"></p>
+
+    <form method="POST" action="#" th:action="@{/inquiry/form}">
+      <input type="hidden" name="name" th:value="*{name}">
+      <input type="hidden" name="email" th:value="*{email}">
+      <input type="hidden" name="content" th:value="*{content}">
+      <input type="submit" value="戻る">
+    </form>
+
+    <form method="POST" action="#" th:action="@{/inquiry/index}">
+      <input type="hidden" name="name" th:value="*{name}">
+      <input type="hidden" name="email" th:value="*{email}">
+      <input type="hidden" name="content" th:value="*{content}">
+      <input type="submit" value="送信">
+    </form>
+  </div>
+</body>
+</html>

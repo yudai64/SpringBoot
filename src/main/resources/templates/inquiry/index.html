@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}"></title>
+</head>
+<body>
+  <h3 th:text="${title}"></h3>
+  <table>
+    <tr>
+      <th>ID</th><th>名前</th><th>メールアドレス</th><th>内容</th>
+    </tr>
+    <tr th:each="inquiry : ${inquiryList}">
+      <td>
+        <a th:href="@{/inquiry/{id}(id =${inquiry.id})}" th:text="${inquiry.id}">
+          ID
+        </a>
+      </td>
+      <td th:text="${inquiry.name}">Name</td>
+      <td th:text="${inquiry.email}">Email</td>
+      <td th:text="${inquiry.content}">Content</td>
+    </tr>
+  </table>
+  <br>
+  <a th:href="@{/inquiry/form}"><span>新規問い合わせページ</span></a>
+</body>
+</html>
