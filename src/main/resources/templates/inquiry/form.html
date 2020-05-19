@@ -14,12 +14,12 @@
     <label>メールアドレス</label></br>
     <input type="text" name="email" th:value="*{email}"></br>
     <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-    <label>問い合わせ内容</label></br>
+    <label>お問い合わせ内容</label></br>
     <textarea name="content" rows="4" cols="20" th:field="*{content}"></textarea></br>
     <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></div>
     <input type="submit" value="確認画面へ">
   </form>
   <br>
-  <a th:href="@{/inquiry/index}"><span>問い合わせ一覧ページ</span></a>
+  <a th:href="@{/inquiry/index}"><span>お問い合わせ一覧ページ</span></a>
 </body>
 </html>

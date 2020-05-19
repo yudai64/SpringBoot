@@ -20,16 +20,20 @@ public class Inquiry {
 
   private String content;
 
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
   public String getName() {
     return name;
   }
 
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getEmail() {
@@ -40,8 +44,12 @@ public class Inquiry {
     this.email = email;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
   }
 
 }

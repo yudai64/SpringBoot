@@ -9,12 +9,17 @@
   <h3 th:text="${title}"></h3>
   <table>
     <tr>
-      <th>名前</th><th>メールアドレス</th><th>内容</th>
+      <th>ID</th><th>名前</th><th>メールアドレス</th><th>内容</th>
     </tr>
     <tr th:each="inquiry : ${inquiryList}">
-      <td th:text="${inquiry.name}"></td>
-      <td th:text="${inquiry.email}"></td>
-      <td th:text="${inquiry.content}"></td>
+      <td>
+        <a th:href="@{/inquiry/{id}/details(id =${inquiry.id})}" th:text="${inquiry.id}">
+          ID
+        </a>
+      </td>
+      <td th:text="${inquiry.name}">Name</td>
+      <td th:text="${inquiry.email}">Email</td>
+      <td th:text="${inquiry.content}">Content</td>
     </tr>
   </table>
   <br>

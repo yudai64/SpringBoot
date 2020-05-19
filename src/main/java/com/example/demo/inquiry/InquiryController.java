@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,7 +31,7 @@ public class InquiryController {
   @GetMapping("index")
   public String index(Model model) {
     List <Inquiry> list = inquiryService.findAll();
-    model.addAttribute("title", "問い合わせ一覧ページ");
+    model.addAttribute("title", "お問い合わせ一覧ページ");
     model.addAttribute("inquiryList", list);
     return "inquiry/index";
   }
@@ -69,9 +70,17 @@ public class InquiryController {
     inquiry.setContent(inquiryForm.getContent());
     inquiryService.save(inquiry);
     List <Inquiry> list = inquiryService.findAll();
-    model.addAttribute("title", "問い合わせ一覧ページ");
+    model.addAttribute("title", "お問い合わせ一覧ページ");
     model.addAttribute("inquiryList", list);
     return "inquiry/index";
+  }
+
+  @GetMapping("{id}/details")
+  public String details(@PathVariable("id") Integer id, Model model) {
+    Inquiry inquiry = inquiryService.findById(id);
+    model.addAttribute("title", "お問い合わせ詳細ページ");
+    model.addAttribute("inquiryRequest", inquiry);
+    return "inquiry/details";
   }
 
 }

@@ -12,7 +12,7 @@ public class InquiryForm {
   @Email(message = "正しい表記で記入してください")
   private String email;
 
-  @NotBlank(message = "問い合わせ内容を入力してください")
+  @NotBlank(message = "お問い合わせ内容を入力してください")
   private String content;
 
   public InquiryForm() {

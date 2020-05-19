@@ -27,4 +27,9 @@ public class InquiryServiceImpl implements InquiryService {
   public List<Inquiry> findAll(){
     return inquiryRepository.findAll();
   }
+
+  @Override
+  public Inquiry findById(Integer id) {
+    return inquiryRepository.findById(id).get();
+  }
 }
