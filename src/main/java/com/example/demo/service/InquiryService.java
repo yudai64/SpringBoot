@@ -11,4 +11,6 @@ public interface InquiryService {
   List<Inquiry> findAll();
 
   public Inquiry findById(Integer id);
+
+  public void deleteById(Integer id);
 }

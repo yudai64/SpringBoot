@@ -32,4 +32,9 @@ public class InquiryServiceImpl implements InquiryService {
   public Inquiry findById(Integer id) {
     return inquiryRepository.findById(id).get();
   }
+
+@Override
+public void deleteById(Integer id) {
+  inquiryRepository.deleteById(id);
+}
 }

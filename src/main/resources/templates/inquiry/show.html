@@ -26,6 +26,10 @@
     </tr>
   </table>
   <br>
+  <form th:action="@{/inquiry/{id}(id=*{id})}" th:method="delete">
+    <input type="submit" value="問い合わせを削除" />
+  </form>
+  </br>
   <a th:href="@{/inquiry/index}"><span>お問い合わせ一覧ページ</span></a>
 </body>
 </html>
