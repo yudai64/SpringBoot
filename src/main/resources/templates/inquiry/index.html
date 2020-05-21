@@ -3,26 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <title th:text="${title}"></title>
 </head>
 <body>
-  <h3 th:text="${title}"></h3>
-  <table>
-    <tr>
-      <th>ID</th><th>名前</th><th>メールアドレス</th><th>内容</th>
-    </tr>
-    <tr th:each="inquiry : ${inquiryList}">
-      <td>
-        <a th:href="@{/inquiry/{id}(id =${inquiry.id})}" th:text="${inquiry.id}">
-          ID
-        </a>
-      </td>
-      <td th:text="${inquiry.name}">Name</td>
-      <td th:text="${inquiry.email}">Email</td>
-      <td th:text="${inquiry.content}">Content</td>
-    </tr>
-  </table>
-  <br>
-  <a th:href="@{/inquiry/form}"><span>新規問い合わせページ</span></a>
+  <div th:replace="~{layout/navi::navbar}"></div>
+  <div class="container">
+    <h3 th:text="${title}" class="mt-4 mb-4"></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">名前</th>
+          <th scope="col">メールアドレス</th>
+          <th scope="col">内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="inquiry : ${inquiryList}">
+          <th scope="row">
+            <a th:href="@{/inquiry/{id}(id =${inquiry.id})}" th:text="${inquiry.id}">
+              ID
+            </a>
+          </th>
+          <td th:text="${inquiry.name}">名前</td>
+          <td th:text="${inquiry.email}">メールアドレス</td>
+          <td th:text="${inquiry.content}">内容</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>

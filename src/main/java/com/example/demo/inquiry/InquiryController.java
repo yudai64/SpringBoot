@@ -112,7 +112,7 @@ public class InquiryController {
     }
 
     //編集ページで「確認を反映」が押されたとき
-    //内容にあったら編集画面のまま
+    //内容に問題あったら編集画面のまま
     //なかったら詳細画面に遷移
     @PutMapping("{id}")
     public String update(@Validated InquiryForm inquiryForm, BindingResult result, Model model, @PathVariable Integer id, @ModelAttribute Inquiry inquiry) {
