@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${statusCode} + 'エラーページ'">500エラーページ</title>
+</head>
+<body>
+  <body>
+    <h3>指定されたURLは存在しません</h3>
+    <h3 th:text="'status: ' + ${statusCode}"></h3>
+    <a th:href="@{/}">トップに戻る</a>
+</body>
+</body>
+</html>
