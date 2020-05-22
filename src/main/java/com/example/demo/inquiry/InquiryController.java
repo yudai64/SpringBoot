@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -113,7 +112,7 @@ public class InquiryController {
     //内容に問題あったら編集画面のまま
     //なかったら詳細画面に遷移
     @PutMapping("{id}")
-    public String update(@Validated InquiryForm inquiryForm, BindingResult result, Model model, @PathVariable Integer id, @ModelAttribute Inquiry inquiry) {
+    public String update(@Validated InquiryForm inquiryForm, BindingResult result, Model model, @PathVariable Integer id, Inquiry inquiry) {
 
       if (result.hasErrors()) {
 
