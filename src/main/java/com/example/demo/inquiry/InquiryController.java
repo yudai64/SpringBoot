@@ -90,17 +90,15 @@ public class InquiryController {
     return "inquiry/form";
   }
 
-  //確認画面で送信がおされたとき、内容をデータベースに保存してお問い合わせ一覧ページに遷移
-  @PostMapping("/index")
+  //確認画面で送信がおされたとき、内容をデータベースに保存してお問い合わせ完了ページに遷移
+  @PostMapping("/save")
   public String save(Inquiry inquiry, InquiryForm inquiryForm, Model model) {
     inquiry.setName(inquiryForm.getName());
     inquiry.setEmail(inquiryForm.getEmail());
     inquiry.setContent(inquiryForm.getContent());
     inquiryService.save(inquiry);
-    List <Inquiry> list = inquiryService.findAll();
-    model.addAttribute("title", "お問い合わせ一覧ページ");
-    model.addAttribute("inquiryList", list);
-    return "inquiry/index";
+    model.addAttribute("title", "お問い合わせ完了ページ");
+    return "inquiry/complete";
   }
 
   //削除ボタンが押されたとき
@@ -112,7 +110,7 @@ public class InquiryController {
     }
 
     //編集ページで「確認を反映」が押されたとき
-    //内容にあったら編集画面のまま
+    //内容に問題あったら編集画面のまま
     //なかったら詳細画面に遷移
     @PutMapping("{id}")
     public String update(@Validated InquiryForm inquiryForm, BindingResult result, Model model, @PathVariable Integer id, @ModelAttribute Inquiry inquiry) {

@@ -11,30 +11,26 @@
   <div th:replace="~{layout/navi::navbar}"></div>
   <div class="container">
     <h3 th:text="${title}" class="mt-4 mb-4"></h3>
-    <table class="table">
-      <thead>
+    <p>問い合わせが完了しました。ありがとうございます。</p>
+    <p>入力画面 -> 確認画面 -><span class="badge badge-danger">完了画面</span></p>
+    <div th:object="${inquiryForm}">
+      <table class="table">
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">名前</th>
-          <th scope="col">メールアドレス</th>
-          <th scope="col">内容</th>
+          <th>名前</th>
+          <td th:text="*{name}"></td>
         </tr>
-      </thead>
-      <tbody>
-        <tr th:each="inquiry : ${inquiryList}">
-          <th scope="row">
-            <a th:href="@{/inquiry/{id}(id =${inquiry.id})}" th:text="${inquiry.id}">
-              ID
-            </a>
-          </th>
-          <td th:text="${inquiry.name}">名前</td>
-          <td th:text="${inquiry.email}">メールアドレス</td>
-          <td th:text="${inquiry.content}">内容</td>
+        <tr>
+          <th>メールアドレス</th>
+          <td th:text="*{email}"></td>
         </tr>
-      </tbody>
-    </table>
+        <tr>
+          <th>お問い合わせ内容</th>
+          <td th:text="*{content}"></td>
+        </tr>
+      </table>
+    </div>
   </div>
-  
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
