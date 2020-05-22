@@ -11,26 +11,25 @@
   <div th:replace="~{layout/navi::navbar}"></div>
   <div class="container">
     <h3 th:text="${title}" class="mt-4 mb-4"></h3>
-    <p><span class="badge badge-danger">入力画面</span> -> 確認画面 -> 完了画面</p>
-    <form method="POST" action="#" th:action="@{/inquiry/confirm}" th:object="${inquiryForm}">
-        <div class="form-group">
-            <label>名前</label>
-            <input type="text" name="name" th:value="*{name}" class="form-control">
-            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></div>
-        </div>
-        <div class="form-group">
-            <label>メールアドレス</label>
-            <input type="text" name="email" th:value="*{email}" class="form-control">
-            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></div>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">お問い合わせ内容</label>
-          <textarea name="content" th:field="*{content}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger"></div>
-        </div>
-        <button type="submit" class="btn btn-primary">確認画面へ</button>
-    </form>
-</div>
+    <p>問い合わせが完了しました。ありがとうございます。</p>
+    <p>入力画面 -> 確認画面 -><span class="badge badge-danger">完了画面</span></p>
+    <div th:object="${inquiryForm}">
+      <table class="table">
+        <tr>
+          <th>名前</th>
+          <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td th:text="*{email}"></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ内容</th>
+          <td th:text="*{content}"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
