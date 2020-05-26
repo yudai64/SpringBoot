@@ -23,7 +23,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("InquiryServiceImplの単体テスト")
-public class InquiryServiceImplTest {
+public class InquiryServiceImplUnitTest {
 
   @Mock
   InquiryRepository inquiryRepository;

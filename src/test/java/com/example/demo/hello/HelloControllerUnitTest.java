@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(HelloController.class)
 @ExtendWith(SpringExtension.class)
 @DisplayName("Helloコントローラのテスト")
-public class HelloControllerTest {
+public class HelloControllerUnitTest {
   
   @Autowired
   private MockMvc mockMvc;
