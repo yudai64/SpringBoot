@@ -10,16 +10,13 @@ import java.util.List;
 
 import com.example.demo.dao.InquiryRepository;
 import com.example.demo.entity.Inquiry;
-// import com.example.demo.service.InquiryServiceImpl;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-// import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-// import org.mockito.verification.VerificationMode;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("InquiryServiceImplの単体テスト")

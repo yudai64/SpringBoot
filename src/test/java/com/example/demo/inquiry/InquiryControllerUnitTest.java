@@ -19,8 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @DisplayName("Inquiryコントローラのテスト")
-// @WebMvcTest
-// @ContextConfiguration(classes = DemoApplication.class)
+// @WebMvcTest(InquiryController.class)
 public class InquiryControllerUnitTest {
 
   private MockMvc mockMvc;
