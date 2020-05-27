@@ -91,10 +91,11 @@ public class InquiryController {
 
   //確認画面で送信がおされたとき、内容をデータベースに保存してお問い合わせ完了ページに遷移
   @PostMapping("/save")
-  public String save(Inquiry inquiry, InquiryForm inquiryForm, Model model) {
-    inquiry.setName(inquiryForm.getName());
-    inquiry.setEmail(inquiryForm.getEmail());
-    inquiry.setContent(inquiryForm.getContent());
+  public String save(InquiryForm inquiryForm, Model model) {
+    Inquiry inquiry = new Inquiry(inquiryForm.getName(), inquiryForm.getEmail(),inquiryForm.getContent());
+    // inquiry.setName(inquiryForm.getName());
+    // inquiry.setEmail(inquiryForm.getEmail());
+    // inquiry.setContent(inquiryForm.getContent());
     inquiryService.save(inquiry);
     model.addAttribute("title", "お問い合わせ完了ページ");
     return "inquiry/complete";

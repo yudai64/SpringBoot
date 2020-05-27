@@ -20,6 +20,16 @@ public class Inquiry {
 
   private String content;
 
+  public Inquiry() {
+
+  }
+  
+  public Inquiry(String name, String email, String content) {
+    this.setName(name);
+    this.setEmail(email);
+    this.setContent(content);
+}
+
   public Integer getId() {
     return id;
   }
