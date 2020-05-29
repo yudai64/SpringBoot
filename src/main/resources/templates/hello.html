@@ -14,7 +14,9 @@
   </head>
   <body>
     <div th:replace="~{layout/navi::navbar}"></div>
+    <h1 class="text-success" sec:authorize="isAuthenticated()">Admin <span sec:authentication="principal.username"></span>, </h1>
     <h1 class="text-success">Hello World.</h1>
+    <!-- <p sec:authorize="isAuthenticated()"><span sec:authentication="principal.username"></span>でログインしています。</p> -->
 
 
     <!-- Optional JavaScript -->
